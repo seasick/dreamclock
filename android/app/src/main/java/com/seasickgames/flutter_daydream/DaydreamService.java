@@ -64,6 +64,7 @@ public class DaydreamService extends DreamService {
         flutterView = null;
 
         flutterEngine.getLifecycleChannel().appIsDetached();
-        // flutterEngine.destroy();
+        flutterEngine.destroy();
+        flutterEngine = null;
     }
 }
