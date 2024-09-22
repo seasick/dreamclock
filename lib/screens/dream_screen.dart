@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_daydream/widgets/digital_clock.dart';
 
 class DreamScreen extends StatefulWidget {
@@ -19,7 +20,15 @@ class _DreamScreenState extends State<DreamScreen> {
   }
 
   void _onClose() {
-    exit(0);
+    // Showing the settings button means that the app launched explicitly by the user
+    // and we should navigate back to the main screen when closing. Otherwise we use `exit()`.
+    if (widget.showSettingsButton) {
+      SystemNavigator.pop();
+    } else {
+      // Using exit() is not recommended, but I've not found another working solution to close it
+      // when it was opened through DreamService/Screensaver preview.
+      exit(0);
+    }
   }
 
   @override
