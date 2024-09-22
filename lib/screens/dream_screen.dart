@@ -37,13 +37,7 @@ class _DreamScreenState extends State<DreamScreen> {
           : null,
       body: GestureDetector(
         onTap: _onClose,
-        child: const FractionallySizedBox(
-          widthFactor: 1.0, // width w.r.t to parent
-          heightFactor: 1.0, // height w.r.t to parent
-          child: Center(
-            child: DigitalClock(),
-          ),
-        ),
+        child: const DigitalClock(),
       ),
     );
   }
