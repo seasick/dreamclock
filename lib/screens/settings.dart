@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/extensions/brightness.dart';
 import 'package:flutter_daydream/widgets/color_picker_tile.dart';
@@ -17,6 +18,12 @@ class SettingsState extends State<Settings> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.canPop(context) ? Navigator.pop(context) : SystemNavigator.pop();
+          },
+        ),
       ),
       body: Center(
         child: SettingsList(
