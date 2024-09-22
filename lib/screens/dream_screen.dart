@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_daydream/extensions/intent.dart';
-import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/widgets/digital_clock.dart';
 
 class DreamScreen extends StatefulWidget {
-  const DreamScreen({super.key});
+  const DreamScreen({super.key, this.showSettingsButton = false});
+
+  final bool showSettingsButton;
 
   @override
   State<DreamScreen> createState() => _DreamScreenState();
@@ -24,15 +24,13 @@ class _DreamScreenState extends State<DreamScreen> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(
-        "DreamScreen.build, ${context.settings.backgroundColor.red} ${context.settings.backgroundColor.green} ${context.settings.backgroundColor.blue}");
-    bool hasAction = context.intent?.action != null;
+    debugPrint("DreamScreen.build");
 
     return Scaffold(
-      floatingActionButton: hasAction
+      floatingActionButton: widget.showSettingsButton
           ? FloatingActionButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/settings');
+                Navigator.pushNamed(context, 'settings');
               },
               child: const Icon(Icons.settings),
             )

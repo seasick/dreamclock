@@ -1,33 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_daydream/extensions/battery.dart';
-import 'package:flutter_daydream/extensions/settings.dart';
-import 'package:flutter_daydream/extensions/intent.dart';
+import 'package:flutter_daydream/extensions/initial_route.dart';
 import 'package:flutter_daydream/screens/dream_screen.dart';
 import 'package:flutter_daydream/screens/settings.dart';
-import 'package:flutter_daydream/widgets/loading.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
-  @override
-  AppState createState() => AppState();
-}
-
-class AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     Brightness brightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
-
-    LoadingWidget loadingWrapper(Widget child) {
-      List<Future> futures = [
-        context.loadSettings(),
-        context.loadIntent(),
-        context.loadBattery(),
-      ];
-      return LoadingWidget(futures: futures, child: child);
-    }
 
     // Set color schemes for light and dark modes
     final lightColorScheme = ColorScheme.fromSeed(
@@ -40,13 +23,12 @@ class AppState extends State<App> {
       brightness: Brightness.dark,
     );
 
-    debugPrint("App.build");
-
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: context.initialRoute ?? 'dream',
       routes: {
-        '/': (context) => loadingWrapper(const DreamScreen()),
-        '/settings': (context) => loadingWrapper(const Settings()),
+        'dream': (context) => const DreamScreen(showSettingsButton: false),
+        'main': (context) => const DreamScreen(showSettingsButton: true),
+        'settings': (context) => const Settings(),
       },
       title: 'Digital Clock',
       theme: ThemeData(
