@@ -10,7 +10,7 @@ class ColorPickerDialog extends StatefulWidget {
     required this.onColorChanged,
   });
 
-  final String title;
+  final Widget title;
   final Color color;
   final void Function(Color) onColorChanged;
 
@@ -32,7 +32,7 @@ class _ColorPickerDialogState extends State<ColorPickerDialog> {
     debugPrint("ColorPickerDialog.build");
 
     return AlertDialog(
-      title: Text(widget.title),
+      title: widget.title,
       content: SingleChildScrollView(
         child: ColorPicker(
           enableShadesSelection: false,

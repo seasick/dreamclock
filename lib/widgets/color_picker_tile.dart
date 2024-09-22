@@ -22,7 +22,7 @@ class ColorPickerTile extends SettingsTile {
               context: context,
               builder: (context) {
                 return ColorPickerDialog(
-                  title: "Pick a color",
+                  title: title,
                   color: value,
                   onColorChanged: onColorChanged,
                 );
