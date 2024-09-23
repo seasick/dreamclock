@@ -115,6 +115,20 @@ class SettingsState extends State<Settings> {
                 ),
               ],
             ),
+
+            // About section
+            SettingsSection(title: const Text('About'), tiles: [
+              SettingsTile(
+                title: const Text('Show Licences'),
+                description: const Text('Shows licenses for software used by this application'),
+                leading: const Icon(Icons.battery_5_bar),
+                onPressed: (BuildContext context) {
+                  showLicensePage(
+                    context: context,
+                  );
+                },
+              ),
+            ]),
           ],
         ),
       ),
