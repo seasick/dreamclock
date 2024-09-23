@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_daydream/extensions/battery.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
+import 'package:flutter_daydream/widgets/scroll.dart';
 import 'package:intl/intl.dart';
 
 class DigitalClock extends StatefulWidget {
@@ -82,19 +83,28 @@ class DigitalClockState extends State<DigitalClock> {
       );
     }
 
+    Widget clockWidget = FractionallySizedBox(
+      widthFactor: 0.75, // width w.r.t to parent
+      heightFactor: 0.75, // height w.r.t to parent
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Column(
+          children: elements,
+        ),
+      ),
+    );
+
+    if (context.settings.burnInPrevention) {
+      clockWidget = Scroll(
+        interval: 5,
+        child: clockWidget,
+      );
+    }
+
     return Scaffold(
       backgroundColor: context.settings.backgroundColor,
       body: Center(
-        child: FractionallySizedBox(
-          widthFactor: 0.75, // width w.r.t to parent
-          heightFactor: 0.75, // height w.r.t to parent
-          child: FittedBox(
-            fit: BoxFit.contain,
-            child: Column(
-              children: elements,
-            ),
-          ),
-        ),
+        child: clockWidget,
       ),
     );
   }
