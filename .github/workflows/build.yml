@@ -52,3 +52,9 @@ jobs:
             --release \
             --build-number=${{ github.run_number }}
 
+      - name: Upload built apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
