@@ -1,18 +1,11 @@
 package com.seasickgames.flutter_daydream;
 
-import android.view.WindowManager.LayoutParams;
 import android.service.dreams.DreamService;
-import com.seasickgames.flutter_daydream.utils.MethodChannelFactory;
-import io.flutter.FlutterInjector;
 import io.flutter.embedding.android.FlutterView;
-import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.dart.DartExecutor;
-import io.flutter.embedding.engine.loader.FlutterLoader;
-import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
-import io.flutter.embedding.engine.plugins.util.GeneratedPluginRegister;
-import java.util.HashMap;
-import java.util.function.Function;
+import io.flutter.embedding.engine.FlutterEngine;
 
+import com.seasickgames.flutter_daydream.MethodChannelHandler;
 import com.seasickgames.flutter_daydream.R;
 
 public class DaydreamService extends DreamService {
@@ -32,10 +25,10 @@ public class DaydreamService extends DreamService {
             DartExecutor.DartEntrypoint.createDefault()
         );
 
-        // Register platform method
-        HashMap<String, Function> handlers = new HashMap<>();
-        handlers.put("getInitialRoute", (args) -> "dream");
-        MethodChannelFactory.create(flutterEngine, handlers);
+        // Initialiser Method Channel Handler
+        MethodChannelHandler handler = new MethodChannelHandler(
+            flutterEngine, this, "dream"
+        );
 
         setContentView(R.layout.flutter_wrap);
 
