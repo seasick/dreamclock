@@ -12,7 +12,10 @@ extension BatteryContextExtension<T> on BuildContext {
     (Timer t) => _updateBatteryLevel(),
   );
 
-  // TODO Cancel timer on cleanup
+  // Cancel timer on cleanup
+  void deactivateBattery() {
+    _timer.cancel();
+  }
 
   Future<void> loadBattery() async {
     if (_loaded) {

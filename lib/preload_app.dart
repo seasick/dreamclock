@@ -13,6 +13,13 @@ class PreloadApp extends StatefulWidget {
 
 class PreloadAppState extends State<PreloadApp> {
   @override
+  void deactivate() {
+    context.deactivateBattery();
+
+    super.deactivate();
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<Future> preLoad = [
       context.loadInitialRoute(),
