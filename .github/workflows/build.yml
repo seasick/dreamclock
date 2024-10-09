@@ -1,0 +1,54 @@
+## Gratiosly adapted from https://medium.com/lodgify-technology-blog/deploy-your-flutter-app-to-google-play-with-github-actions-f13a11c4492e
+## Github Actions CI workflow to deploy to Internal testing in the Play Store
+name: Flutter Build
+
+on:
+  # Run this workflow when any new code is pushed into the main branch
+  push:
+    branches: [main]
+
+jobs:
+  build_android:
+    # Only run this job if the branch name starts with 'release/'
+    name: Build Android
+    runs-on: ubuntu-latest
+    env:
+      # Setup env variables that will be used throughout the workflow
+      JAVA_VERSION: 12.0
+      FLUTTER_VERSION: 3.13.1
+      AAB_PATH: build/app/outputs/bundle/release/app-release.aab
+    steps:
+      # Checkout repository codebase
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      # Setup Java in the VM
+      - name: Setup Java to compile the Android project
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # Setup Flutter in the VM
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      # Run flutter commands
+      - name: 📦 Install dependencies
+        run: flutter pub get
+
+      - name: 🕵️ Analyze to check for bad Dart/Flutter practices
+        run: flutter analyze
+
+      - name: 📉 Run all app tests
+        run: flutter test
+
+      # Build Android APK release file
+      - name: Build apk
+        run: |
+          flutter build
+          --release
+          --build-number=${{ github.run_number }}
+
