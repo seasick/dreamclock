@@ -1,3 +1,11 @@
 # Flutter Daydream
 
-A clock screensaver
+A daydream screen saver showing a clock.
+
+# Development
+
+```bash
+flutter clean
+flutter build apk
+flutter install
+```
