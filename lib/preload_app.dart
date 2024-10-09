@@ -20,7 +20,7 @@ class PreloadAppState extends State<PreloadApp> {
       context.loadBattery(),
     ];
 
-    return Container(
+    return SizedBox(
       height: double.infinity,
       width: double.infinity,
       child: FutureBuilder<dynamic>(
