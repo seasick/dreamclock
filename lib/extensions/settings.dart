@@ -20,6 +20,7 @@ extension SettingsContextExtension<T> on BuildContext {
 }
 
 class SettingsObject {
+  bool _alarm = false;
   bool _batteryPercentage = false;
   bool _burnInPrevention = false;
   bool _twentyFourHourFormat = true;
@@ -29,6 +30,13 @@ class SettingsObject {
 
   final SettingsService _settingsService = SettingsService();
   static bool _loaded = false;
+
+  // Getter and setter for alarm
+  bool get alarm => _alarm;
+  set alarm(bool value) {
+    _settingsService.saveBoolSetting('alarm', value);
+    _alarm = value;
+  }
 
   // Getter and setter for batteryPercentage
   bool get batteryPercentage => _batteryPercentage;
@@ -80,6 +88,7 @@ class SettingsObject {
     debugPrint('Loading settings...');
 
     List<SettingField> fields = [
+      SettingField('alarm', 'bool', (value) => _alarm = value, false),
       SettingField('batteryPercentage', 'bool', (value) => _batteryPercentage = value, false),
       SettingField('burnInPrevention', 'bool', (value) => _burnInPrevention = value, false),
       SettingField('twentyFourHourFormat', 'bool', (value) => _twentyFourHourFormat = value, true),

@@ -34,6 +34,17 @@ class SettingsState extends State<Settings> {
               // title: Text('Section'),
               tiles: [
                 SettingsTile.switchTile(
+                  title: const Text('Alarm'),
+                  description: const Text('Show next alarm time'),
+                  leading: const Icon(Icons.alarm),
+                  initialValue: context.settings.alarm,
+                  onToggle: (bool value) {
+                    setState(() {
+                      context.settings.alarm = value;
+                    });
+                  },
+                ),
+                SettingsTile.switchTile(
                   title: const Text('Battery Percentage'),
                   description: const Text('Show battery percentage on screen'),
                   leading: const Icon(Icons.battery_5_bar),

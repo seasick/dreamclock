@@ -1,5 +1,7 @@
 package com.seasickgames.flutter_daydream;
 
+import android.app.AlarmManager;
+import android.app.AlarmManager.AlarmClockInfo;
 import android.content.ContextWrapper;
 import android.os.BatteryManager;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -51,6 +53,8 @@ public class MethodChannelHandler {
                     result.success(getBatteryLevel());
                 } else if (call.method.equals("getInitialRoute")) {
                     result.success(getInitialRoute());
+                } else if (call.method.equals("getNextAlarm")) {
+                    result.success(getNextAlarm());
                 } else {
                     result.notImplemented();
                 }
@@ -60,6 +64,17 @@ public class MethodChannelHandler {
 
     private String getInitialRoute() {
         return initialRoute;
+    }
+
+    private String getNextAlarm() {
+        AlarmManager alarmManager = context.getSystemService(AlarmManager.class);
+        AlarmClockInfo info = alarmManager.getNextAlarmClock();
+
+        if (info == null) {
+            return "";
+        }
+
+        return "" + alarmManager.getNextAlarmClock().getTriggerTime();
     }
 
     private int getBatteryLevel() {

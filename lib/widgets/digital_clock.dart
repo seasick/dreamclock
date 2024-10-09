@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_daydream/extensions/alarm.dart';
 import 'package:flutter_daydream/extensions/battery.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/widgets/scroll.dart';
@@ -59,6 +60,24 @@ class DigitalClockState extends State<DigitalClock> {
     return format.format(dateTime);
   }
 
+  String _formatAlarm(DateTime alarm) {
+    String formatString = '';
+
+    // If the alarm is more than 24 hours away, show the date
+    if (alarm.difference(DateTime.now()).inDays > 0) {
+      formatString += 'MMM d, ';
+    }
+
+    if (context.settings.twentyFourHourFormat) {
+      formatString += 'HH:mm';
+    } else {
+      formatString += 'hh:mm a';
+    }
+
+    DateFormat format = DateFormat(formatString);
+    return format.format(alarm);
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> elements = [
@@ -79,6 +98,31 @@ class DigitalClockState extends State<DigitalClock> {
             fontSize: 4,
             color: context.settings.fontColor,
           ),
+        ),
+      );
+    }
+
+    if (context.settings.alarm && context.alarm > 0) {
+      DateTime alarmTime = DateTime.fromMillisecondsSinceEpoch(context.alarm);
+      String alarmString = _formatAlarm(alarmTime);
+
+      elements.add(
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.alarm,
+              size: 4,
+              color: context.settings.fontColor,
+            ),
+            Text(
+              " $alarmString",
+              style: TextStyle(
+                fontSize: 4,
+                color: context.settings.fontColor,
+              ),
+            ),
+          ],
         ),
       );
     }
