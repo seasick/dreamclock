@@ -15,7 +15,7 @@ jobs:
     env:
       # Setup env variables that will be used throughout the workflow
       JAVA_VERSION: 12.0
-      FLUTTER_VERSION: 3.13.1
+      FLUTTER_VERSION: 3.24.3
       AAB_PATH: build/app/outputs/bundle/release/app-release.aab
     steps:
       # Checkout repository codebase
