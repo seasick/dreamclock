@@ -21,12 +21,12 @@ extension SettingsContextExtension<T> on BuildContext {
 
 class SettingsObject {
   bool _alarm = false;
-  bool _batteryPercentage = false;
-  bool _burnInPrevention = false;
-  bool _twentyFourHourFormat = true;
-  bool _showSeconds = false;
   Color _backgroundColor = const Color.fromARGB(255, 0, 0, 0);
   Color _fontColor = const Color.fromARGB(255, 209, 209, 209);
+  bool _batteryPercentage = false;
+  bool _burnInPrevention = false;
+  bool _showSeconds = false;
+  bool _twentyFourHourFormat = true;
 
   final SettingsService _settingsService = SettingsService();
   static bool _loaded = false;
@@ -45,11 +45,25 @@ class SettingsObject {
     _batteryPercentage = value;
   }
 
+  // Getter and setter for backgroundColor
+  Color get backgroundColor => _backgroundColor;
+  set backgroundColor(Color value) {
+    _settingsService.saveColorSetting('backgroundColor', value);
+    _backgroundColor = value;
+  }
+
   // Getter and setter for burnInPrevention
   bool get burnInPrevention => _burnInPrevention;
   set burnInPrevention(bool value) {
     _settingsService.saveBoolSetting('burnInPrevention', value);
     _burnInPrevention = value;
+  }
+
+  // Getter and setter for fontColor
+  Color get fontColor => _fontColor;
+  set fontColor(Color value) {
+    _settingsService.saveColorSetting('fontColor', value);
+    _fontColor = value;
   }
 
   // Getter and setter for twentyFourHourFormat
@@ -64,20 +78,6 @@ class SettingsObject {
   set showSeconds(bool value) {
     _settingsService.saveBoolSetting('showSeconds', value);
     _showSeconds = value;
-  }
-
-  // Getter and setter for backgroundColor
-  Color get backgroundColor => _backgroundColor;
-  set backgroundColor(Color value) {
-    _settingsService.saveColorSetting('backgroundColor', value);
-    _backgroundColor = value;
-  }
-
-  // Getter and setter for fontColor
-  Color get fontColor => _fontColor;
-  set fontColor(Color value) {
-    _settingsService.saveColorSetting('fontColor', value);
-    _fontColor = value;
   }
 
   void loadSettings() async {

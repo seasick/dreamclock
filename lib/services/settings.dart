@@ -26,28 +26,6 @@ class SettingsService {
     return value;
   }
 
-  Future<void> saveIntSetting(String key, int value) async {
-    debugPrint("SettingsService.saveIntSetting");
-    await asyncPrefs.setInt(key, value);
-  }
-
-  Future<int?> getIntSetting(String key) async {
-    int? value = await asyncPrefs.getInt(key);
-    debugPrint("SettingsService.getIntSetting($key) => $value");
-    return value;
-  }
-
-  Future<void> saveDoubleSetting(String key, double value) async {
-    debugPrint("SettingsService.saveDoubleSetting");
-    await asyncPrefs.setDouble(key, value);
-  }
-
-  Future<double?> getDoubleSetting(String key) async {
-    double? value = await asyncPrefs.getDouble(key);
-    debugPrint("SettingsService.getDoubleSetting($key) => $value");
-    return value;
-  }
-
   Future<void> saveColorSetting(String key, Color value) async {
     debugPrint("SettingsService.saveColorSetting");
     await asyncPrefs.setInt(key, value.value);
@@ -61,5 +39,27 @@ class SettingsService {
       return Color(colorValue);
     }
     return null;
+  }
+
+  Future<void> saveDoubleSetting(String key, double value) async {
+    debugPrint("SettingsService.saveDoubleSetting");
+    await asyncPrefs.setDouble(key, value);
+  }
+
+  Future<double?> getDoubleSetting(String key) async {
+    double? value = await asyncPrefs.getDouble(key);
+    debugPrint("SettingsService.getDoubleSetting($key) => $value");
+    return value;
+  }
+
+  Future<void> saveIntSetting(String key, int value) async {
+    debugPrint("SettingsService.saveIntSetting");
+    await asyncPrefs.setInt(key, value);
+  }
+
+  Future<int?> getIntSetting(String key) async {
+    int? value = await asyncPrefs.getInt(key);
+    debugPrint("SettingsService.getIntSetting($key) => $value");
+    return value;
   }
 }
