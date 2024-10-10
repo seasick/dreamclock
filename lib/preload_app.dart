@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_daydream/app.dart';
 import 'package:flutter_daydream/extensions/alarm.dart';
 import 'package:flutter_daydream/extensions/battery.dart';
 import 'package:flutter_daydream/extensions/initial_route.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
+import 'package:flutter/material.dart';
 
 class PreloadApp extends StatefulWidget {
   const PreloadApp({super.key});

@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter_daydream/widgets/digital_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_daydream/widgets/digital_clock.dart';
 
 class DreamScreen extends StatefulWidget {
   const DreamScreen({super.key, this.showSettingsButton = false});

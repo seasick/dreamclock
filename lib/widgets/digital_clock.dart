@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_daydream/extensions/alarm.dart';
 import 'package:flutter_daydream/extensions/battery.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/widgets/scroll.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DigitalClock extends StatefulWidget {

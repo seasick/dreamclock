@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_daydream/extensions/initial_route.dart';
 import 'package:flutter_daydream/screens/dream_screen.dart';
 import 'package:flutter_daydream/screens/settings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

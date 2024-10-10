@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/extensions/brightness.dart';
+import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/widgets/color_picker_tile.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
