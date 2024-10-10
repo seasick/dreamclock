@@ -22,6 +22,7 @@ extension SettingsContextExtension<T> on BuildContext {
 class SettingsObject {
   bool _alarm = false;
   Color _backgroundColor = const Color.fromARGB(255, 0, 0, 0);
+  String _font = 'Roboto';
   Color _fontColor = const Color.fromARGB(255, 209, 209, 209);
   bool _batteryPercentage = false;
   bool _burnInPrevention = false;
@@ -57,6 +58,13 @@ class SettingsObject {
   set burnInPrevention(bool value) {
     _settingsService.saveBoolSetting('burnInPrevention', value);
     _burnInPrevention = value;
+  }
+
+  // Getter and setter for fontColor
+  String get font => _font;
+  set font(String value) {
+    _settingsService.saveStringSetting('font', value);
+    _font = value;
   }
 
   // Getter and setter for fontColor

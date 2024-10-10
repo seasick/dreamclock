@@ -39,6 +39,7 @@ dependencies:
   flex_color_picker: ^3.5.1
   shared_preferences: ^2.0.6
   battery_plus: ^6.0.3
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

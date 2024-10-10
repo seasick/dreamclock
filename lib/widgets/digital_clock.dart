@@ -5,6 +5,7 @@ import 'package:flutter_daydream/extensions/battery.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter_daydream/widgets/scroll.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class DigitalClock extends StatefulWidget {
@@ -83,9 +84,10 @@ class DigitalClockState extends State<DigitalClock> {
     List<Widget> elements = [
       Text(
         _timeString,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
+        style: GoogleFonts.getFont(
+          context.settings.font,
           color: context.settings.fontColor,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ];
@@ -94,7 +96,8 @@ class DigitalClockState extends State<DigitalClock> {
       elements.add(
         Text(
           "${context.batteryLevel}%",
-          style: TextStyle(
+          style: GoogleFonts.getFont(
+            context.settings.font,
             fontSize: 4,
             color: context.settings.fontColor,
           ),
@@ -117,7 +120,8 @@ class DigitalClockState extends State<DigitalClock> {
             ),
             Text(
               " $alarmString",
-              style: TextStyle(
+              style: GoogleFonts.getFont(
+                context.settings.font,
                 fontSize: 4,
                 color: context.settings.fontColor,
               ),

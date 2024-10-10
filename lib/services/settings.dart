@@ -62,4 +62,15 @@ class SettingsService {
     debugPrint("SettingsService.getIntSetting($key) => $value");
     return value;
   }
+
+  Future<void> saveStringSetting(String key, String value) async {
+    debugPrint("SettingsService.saveStringSetting");
+    await asyncPrefs.setString(key, value);
+  }
+
+  Future<String?> getStringSetting(String key) async {
+    String? value = await asyncPrefs.getString(key);
+    debugPrint("SettingsService.getStringSetting($key) => $value");
+    return value;
+  }
 }

@@ -1,9 +1,11 @@
 import 'package:flutter_daydream/extensions/brightness.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
+import 'package:flutter_daydream/screens/font_selection.dart';
 import 'package:flutter_daydream/widgets/color_picker_tile.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -112,6 +114,26 @@ class SettingsState extends State<Settings> {
                     });
                   },
                   trailing: Icon(Icons.circle, color: context.settings.backgroundColor),
+                ),
+                SettingsTile.navigation(
+                  title: const Text("Font"),
+                  leading: const Icon(Icons.font_download),
+                  onPressed: (context) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FontSelection(),
+                      ),
+                    ).then((context) {
+                      // FontSelection will update the font in the settings,
+                      // so we need to update the UI
+                      setState(() {});
+                    });
+                  },
+                  trailing: Text(
+                    context.settings.font,
+                    style: GoogleFonts.getFont(context.settings.font),
+                  ),
                 ),
                 ColorPickerTile(
                   title: const Text('Font Color'),
