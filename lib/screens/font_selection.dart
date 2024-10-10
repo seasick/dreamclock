@@ -1,9 +1,9 @@
 import 'package:flutter_daydream/extensions/brightness.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
+import 'package:flutter_daydream/widgets/app_fonts.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FontSelection extends StatefulWidget {
   const FontSelection({super.key});
@@ -20,6 +20,8 @@ class FontSelectionState extends State<FontSelection> {
     // TODO These fonts should be downloaded at build time
     final List<String> myGoogleFonts = [
       "Concert One",
+      "DSEG14", // Local font
+      "DSEG7", // Local font
       "Monoton",
       "Orbitron",
       "Pirata One",
@@ -46,7 +48,7 @@ class FontSelectionState extends State<FontSelection> {
               return SettingsTile(
                 title: Text(
                   fontName,
-                  style: GoogleFonts.getFont(fontName),
+                  style: AppFonts.getFont(fontName),
                 ),
                 onPressed: (BuildContext context) {
                   setState(() {
