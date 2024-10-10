@@ -77,7 +77,9 @@ flutter:
   fonts:
     - family: DSEG7
       fonts:
-        - asset: fonts/DSEG7ClassicMini-Light.ttf
+        - asset: fonts/DSEG7ClassicMini-Bold.ttf
+        - asset: fonts/DSEG7ClassicMini-Regular.ttf
     - family: DSEG14
       fonts:
-        - asset: fonts/DSEG14ClassicMini-Light.ttf
+        - asset: fonts/DSEG14ClassicMini-Bold.ttf
+        - asset: fonts/DSEG14ClassicMini-Regular.ttf
