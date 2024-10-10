@@ -39,7 +39,7 @@ dependencies:
   flex_color_picker: ^3.5.1
   shared_preferences: ^2.0.6
   battery_plus: ^6.0.3
-  google_fonts: ^6.2.1
+  yaml: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -64,8 +64,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+     - pubspec.yaml
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -75,11 +75,90 @@ flutter:
   # https://flutter.dev/to/asset-from-package
 
   fonts:
+
+    # fonts/DSEG-LICENSE.txt
     - family: DSEG7
       fonts:
-        - asset: fonts/DSEG7ClassicMini-Bold.ttf
-        - asset: fonts/DSEG7ClassicMini-Regular.ttf
+        - asset: fonts/DSEG/DSEG7ClassicMini-Bold.ttf
+          weight: 700
+        - asset: fonts/DSEG/DSEG7ClassicMini-Regular.ttf
     - family: DSEG14
       fonts:
-        - asset: fonts/DSEG14ClassicMini-Bold.ttf
-        - asset: fonts/DSEG14ClassicMini-Regular.ttf
+        - asset: fonts/DSEG/DSEG14ClassicMini-Bold.ttf
+          weight: 700
+        - asset: fonts/DSEG/DSEG14ClassicMini-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Abril_Fatface
+      fonts:
+        - asset: fonts/Abril_Fatface/AbrilFatface-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Bebas_Neue
+      fonts:
+        - asset: fonts/Bebas_Neue/BebasNeue-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Concert One
+      fonts:
+        - asset: fonts/Concert_One/ConcertOne-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Cormorant Garamond
+      fonts:
+        - asset: fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf
+          weight: 700
+        - asset: fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Londrina Sketch
+      fonts:
+        - asset: fonts/Londrina_Sketch/LondrinaSketch-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Monoton
+      fonts:
+        - asset: fonts/Monoton/Monoton-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Orbitron
+      fonts:
+        - asset: fonts/Orbitron/Orbitron-Bold.ttf
+          weight: 700
+        - asset: fonts/Orbitron/Orbitron-Regular.ttf
+
+    # fonts/ULAHUP/LICENSE.txt
+    - family: Permanent Marker
+      fonts:
+        - asset: fonts/Permanent_Marker/PermanentMarker-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Pirata One
+      fonts:
+        - asset: fonts/Pirata_One/PirataOne-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Pixelify Sans
+      fonts:
+        - asset: fonts/Pixelify_Sans/PixelifySans-Bold.ttf
+          weight: 700
+        - asset: fonts/Pixelify_Sans/PixelifySans-Regular.ttf
+
+    # fonts/ULAHUP/LICENSE.txt
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: fonts/Roboto/Roboto-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Silkscreen
+      fonts:
+        - asset: fonts/Silkscreen/Silkscreen-Bold.ttf
+          weight: 700
+        - asset: fonts/Silkscreen/Silkscreen-Regular.ttf
+
+    # fonts/ULAHUP/OFL.txt
+    - family: Sixtyfour
+      fonts:
+        - asset: fonts/Sixtyfour/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf
