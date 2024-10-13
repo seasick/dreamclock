@@ -1,6 +1,7 @@
 import 'package:flutter_daydream/app.dart';
 import 'package:flutter_daydream/extensions/alarm.dart';
 import 'package:flutter_daydream/extensions/battery.dart';
+import 'package:flutter_daydream/extensions/fonts.dart';
 import 'package:flutter_daydream/extensions/initial_route.dart';
 import 'package:flutter_daydream/extensions/settings.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class PreloadAppState extends State<PreloadApp> {
   @override
   Widget build(BuildContext context) {
     List<Future> preLoad = [
+      context.loadFonts(),
       context.loadAlarm(),
       context.loadInitialRoute(),
       context.loadSettings(),
