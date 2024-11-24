@@ -1,2 +1,2 @@
 <dream xmlns:android="http://schemas.android.com/apk/res/android"
-     android:settingsActivity="com.seasickgames.flutter_daydream/.SettingsActivity" />
+     android:settingsActivity="com.seasickgames.dreamclock/.SettingsActivity" />

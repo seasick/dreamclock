@@ -1,4 +1,4 @@
-import 'package:flutter_daydream/widgets/color_picker_dialog.dart';
+import 'package:dreamclock/widgets/color_picker_dialog.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:flutter/material.dart';
 

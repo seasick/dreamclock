@@ -1,4 +1,4 @@
-import 'package:flutter_daydream/app.dart';
+import 'package:dreamclock/app.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -5,7 +5,7 @@
 //   twentyFourHourFormat, showSeconds, backgroundColor, fontColor.
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_daydream/services/settings.dart';
+import 'package:dreamclock/services/settings.dart';
 
 extension SettingsContextExtension<T> on BuildContext {
   static final SettingsObject _settings = SettingsObject();

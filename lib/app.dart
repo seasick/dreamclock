@@ -1,6 +1,6 @@
-import 'package:flutter_daydream/extensions/initial_route.dart';
-import 'package:flutter_daydream/screens/dream_screen.dart';
-import 'package:flutter_daydream/screens/settings.dart';
+import 'package:dreamclock/extensions/initial_route.dart';
+import 'package:dreamclock/screens/dream_screen.dart';
+import 'package:dreamclock/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -30,7 +30,7 @@ class App extends StatelessWidget {
         'main': (context) => const DreamScreen(showSettingsButton: true),
         'settings': (context) => const Settings(),
       },
-      title: 'Digital Clock',
+      title: 'DreamClock',
       theme: ThemeData(
         colorScheme: isDarkMode ? darkColorScheme : lightColorScheme,
       ),

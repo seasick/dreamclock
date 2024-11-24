@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter_daydream/widgets/digital_clock.dart';
+import 'package:dreamclock/widgets/digital_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

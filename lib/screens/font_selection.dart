@@ -1,6 +1,6 @@
-import 'package:flutter_daydream/extensions/brightness.dart';
-import 'package:flutter_daydream/extensions/fonts.dart';
-import 'package:flutter_daydream/extensions/settings.dart';
+import 'package:dreamclock/extensions/brightness.dart';
+import 'package:dreamclock/extensions/fonts.dart';
+import 'package:dreamclock/extensions/settings.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

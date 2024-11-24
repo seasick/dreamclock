@@ -1,4 +1,4 @@
-package com.seasickgames.flutter_daydream;
+package com.seasickgames.dreamclock;
 
 import android.app.AlarmManager;
 import android.app.AlarmManager.AlarmClockInfo;

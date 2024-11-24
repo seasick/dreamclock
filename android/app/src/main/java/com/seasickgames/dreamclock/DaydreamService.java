@@ -1,12 +1,12 @@
-package com.seasickgames.flutter_daydream;
+package com.seasickgames.dreamclock;
 
 import android.service.dreams.DreamService;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.FlutterEngine;
 
-import com.seasickgames.flutter_daydream.MethodChannelHandler;
-import com.seasickgames.flutter_daydream.R;
+import com.seasickgames.dreamclock.MethodChannelHandler;
+import com.seasickgames.dreamclock.R;
 
 public class DaydreamService extends DreamService {
     private FlutterEngine flutterEngine;

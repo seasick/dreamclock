@@ -1,12 +1,12 @@
-package com.seasickgames.flutter_daydream;
+package com.seasickgames.dreamclock;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
-import com.seasickgames.flutter_daydream.MethodChannelHandler;
+import com.seasickgames.dreamclock.MethodChannelHandler;
 
-public class MainActivity extends FlutterActivity {
+public class SettingsActivity extends FlutterActivity {
 
     /*
      * This method is called when the Flutter engine is ready to be used.
@@ -17,7 +17,7 @@ public class MainActivity extends FlutterActivity {
         GeneratedPluginRegistrant.registerWith(flutterEngine);
 
         MethodChannelHandler handler = new MethodChannelHandler(
-            flutterEngine, this, "main"
+            flutterEngine, this, "settings"
         );
     }
 }

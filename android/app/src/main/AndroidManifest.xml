@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Daydream"
+        android:label="DreamClock"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
@@ -57,7 +57,7 @@
             android:name=".DaydreamService"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="MyClock"
+            android:label="DreamClock"
             android:permission="android.permission.BIND_DREAM_SERVICE"
         >
 
