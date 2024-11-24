@@ -50,7 +50,8 @@ jobs:
         run: |
           flutter build apk \
             --release \
-            --build-number=${{ github.ref }}
+            --build-number=${{ github.run_number }} \
+            --build-name=${{ github.ref }}
 
       - name: Upload built apk
         uses: actions/upload-artifact@v4
