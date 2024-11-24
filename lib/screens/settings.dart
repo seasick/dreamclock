@@ -103,17 +103,6 @@ class SettingsState extends State<Settings> {
             SettingsSection(
               title: const Text('Colors & Fonts'),
               tiles: [
-                ColorPickerTile(
-                  title: const Text('Background Color'),
-                  leading: const Icon(Icons.color_lens),
-                  value: context.settings.backgroundColor,
-                  onColorChanged: (Color color) {
-                    setState(() {
-                      context.settings.backgroundColor = color;
-                    });
-                  },
-                  trailing: Icon(Icons.circle, color: context.settings.backgroundColor),
-                ),
                 SettingsTile.navigation(
                   title: const Text("Font"),
                   leading: const Icon(Icons.font_download),
@@ -144,6 +133,17 @@ class SettingsState extends State<Settings> {
                     });
                   },
                   trailing: Icon(Icons.circle, color: context.settings.fontColor),
+                ),
+                ColorPickerTile(
+                  title: const Text('Background Color'),
+                  leading: const Icon(Icons.color_lens),
+                  value: context.settings.backgroundColor,
+                  onColorChanged: (Color color) {
+                    setState(() {
+                      context.settings.backgroundColor = color;
+                    });
+                  },
+                  trailing: Icon(Icons.circle, color: context.settings.backgroundColor),
                 ),
               ],
             ),
