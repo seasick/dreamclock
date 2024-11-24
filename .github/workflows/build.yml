@@ -66,8 +66,12 @@ jobs:
       - name: Download built apk
         uses: actions/download-artifact@v4
 
+      # Debug to find out where the files are downloaded to
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: app-release.apk
+          artifacts: "*.apk"
           artifactContentType: application/vnd.android.package-archive
           generateReleaseNotes: true
