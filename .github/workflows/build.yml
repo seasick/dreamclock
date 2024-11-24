@@ -58,6 +58,7 @@ jobs:
           path: build/app/outputs/flutter-apk/app-release.apk
 
   release:
+    name: Release
     needs: build_android
     runs-on: ubuntu-latest
     steps:
