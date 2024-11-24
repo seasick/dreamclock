@@ -56,7 +56,6 @@ jobs:
       - name: Upload built apk
         uses: actions/upload-artifact@v4
         with:
-          name: app.apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
   release:
@@ -66,15 +65,9 @@ jobs:
     steps:
       - name: Download built apk
         uses: actions/download-artifact@v4
-        with:
-          name: app.apk
-
-      # Debug to find out where the files are downloaded to
-      - name: Display structure of downloaded files
-        run: ls -R
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: app.apk
+          artifacts: app-release.apk
           artifactContentType: application/vnd.android.package-archive
           generateReleaseNotes: true
