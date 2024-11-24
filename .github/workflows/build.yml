@@ -69,6 +69,10 @@ jobs:
         with:
           name: app.apk
 
+      # Debug to find out where the files are downloaded to
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - uses: ncipollo/release-action@v1
         with:
           artifacts: app.apk
