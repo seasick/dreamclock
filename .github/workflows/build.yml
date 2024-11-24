@@ -1,11 +1,11 @@
-## Gratiosly adapted from https://medium.com/lodgify-technology-blog/deploy-your-flutter-app-to-google-play-with-github-actions-f13a11c4492e
-## Github Actions CI workflow to deploy to Internal testing in the Play Store
-name: Flutter Build
+## Github Actions CI workflow to build and release Flutter Android APK
+name: Build and Release
 
 on:
-  # Run this workflow when any new code is pushed into the main branch
+  # Run this workflow when a new tag is pushed
   push:
-    branches: [main]
+    tags:
+      - 'v*'
 
 jobs:
   build_android:
@@ -50,11 +50,25 @@ jobs:
         run: |
           flutter build apk \
             --release \
-            --build-number=${{ github.run_number }}
+            --build-number=${{ github.ref }}
 
       - name: Upload built apk
         uses: actions/upload-artifact@v4
         with:
-          name: apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
+  release:
+    needs: build_android
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built apk
+        uses: actions/download-artifact@v2
+        with:
+          path: app.apk
+
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: app.apk
+          artifactContentType: application/vnd.android.package-archive
+          generateReleaseNotes: true
