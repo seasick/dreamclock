@@ -72,6 +72,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "*.apk"
+          artifacts: artifact/app-release.apk
           artifactContentType: application/vnd.android.package-archive
           generateReleaseNotes: true
